@@ -1,0 +1,7 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  spree:
+    avior_tax: Avior Tax
+    avior_tax_settings_updated: Avior Tax Settings successfully updated

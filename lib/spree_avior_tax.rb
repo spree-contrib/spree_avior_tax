@@ -1,0 +1,5 @@
+require 'spree_core'
+require 'spree_extension'
+require 'deface'
+require 'spree_avior_tax/engine'
+require 'spree_avior_tax/version'
