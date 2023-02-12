@@ -14,7 +14,7 @@ module SpreeAviorTax
     end
 
     initializer 'spree_custom_tax.calculators.tax_rates' do |app|
-      app.config.spree.calculators.tax_rates << SpreeCustomTax::Calculator::CustomTaxCalculator
+      app.config.spree.calculators.tax_rates << SpreeAviorTax::Calculator::AviorTaxCalculator
     end
 
     def self.activate

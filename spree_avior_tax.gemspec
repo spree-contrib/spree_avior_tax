@@ -1,5 +1,4 @@
-# encoding: UTF-8
-lib = File.expand_path('../lib/', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
 
 require 'spree_avior_tax/version'
@@ -17,11 +16,12 @@ Gem::Specification.new do |s|
   s.homepage  = 'https://github.com/your-github-handle/spree_avior_tax'
   s.license = 'BSD-3-Clause'
 
-  s.files       = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(/^spec\/fixtures/) }
+  s.files = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(%r{^spec/fixtures}) }
   s.require_path = 'lib'
   s.requirements << 'none'
 
   s.add_dependency 'deface'
+  s.add_dependency 'httparty'
   s.add_dependency 'spree', '>= 4.4.0'
   s.add_dependency 'spree_extension'
 

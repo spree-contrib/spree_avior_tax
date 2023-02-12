@@ -1,1 +1,32 @@
-cddsc
+
+<%= render 'spree/admin/shared/sub_menu/configuration' %>
+<% content_for :page_title do %>
+  <%= Spree.t(:avior_tax_settings) %>
+<% end %>
+<%= form_tag admin_avior_tax_settings_path, method: :put do %>
+  <div id="preferences" data-hook>
+    <div class="row">
+      <div class="col-md-6">
+        <fieldset class="no-border-bottom">
+          <% @preferences_api.each do |key| %>
+            <div class="form-group">
+              <% if SpreeAviorTax::Config.preference_type(key) == :boolean %>
+                <div class="checkbox">
+                  <%= label_tag key do %>
+                    <%= hidden_field_tag(key, 0, id: "#{key}_hidden") %>
+                    <%= check_box_tag(key, 1, SpreeAviorTax::Config[key]) %>
+                    <%= Spree.t(key) %>
+                  <%end%>
+                </div>
+              <% else %>
+                <%= label_tag key %>
+                <%= preference_field_tag(key, SpreeAviorTax::Config[key], type: SpreeAviorTax::Config.preference_type(key)) %>
+              <% end %>
+            </div>
+          <% end %>
+        </fieldset>
+      </div>
+    </div>
+    <%= render partial: 'spree/admin/shared/edit_resource_links', locals: {collection_url: admin_orders_url}  %>
+  </div>
+<% end %>

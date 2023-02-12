@@ -1,5 +1,7 @@
 require 'spree_core'
 require 'spree_extension'
 require 'deface'
+require 'httparty'
+require 'spree_avior_tax/client'
 require 'spree_avior_tax/engine'
 require 'spree_avior_tax/version'

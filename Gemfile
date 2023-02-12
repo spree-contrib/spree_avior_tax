@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 spree_version = '= 4.4'
 gem 'deface'
+gem 'httparty'
 gem 'spree', spree_version
 gem 'spree_backend', spree_version
 
