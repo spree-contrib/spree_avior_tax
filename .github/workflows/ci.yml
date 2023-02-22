@@ -23,7 +23,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/private.key $SSH_REMOTE_USER@$SSH_REMOTE_HOST "
                   cd $REMOTE_TARGET &&
                   docker compose down &&
-                  docker compose run --rm web bundle update spree_avior &&
+                  docker compose run --rm web bundle update spree_avior_tax &&
                   docker compose up -d;"
         env:
           SSH_REMOTE_USER: ${{ secrets.REMOTE_USER }}
