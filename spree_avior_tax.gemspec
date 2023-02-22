@@ -22,8 +22,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'deface'
   s.add_dependency 'httparty'
-  s.add_dependency 'spree', '>= 4.4.0'
+  s.add_dependency 'spree_core', '>= 4.4.0'
   s.add_dependency 'spree_extension'
 
+  s.add_development_dependency 'pg'
   s.add_development_dependency 'spree_dev_tools'
 end

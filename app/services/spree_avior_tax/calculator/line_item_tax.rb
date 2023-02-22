@@ -16,6 +16,7 @@ module SpreeAviorTax
           amount = body['fips tax amount 1']
           amount
         end
+        # order.errors.add(:avior_tax, Spree.t(:avior_invalid_data_in_request)) if amount
         success(amount)
       end
 
@@ -41,7 +42,7 @@ module SpreeAviorTax
       end
 
       def cache_key(order, item, address)
-        [Spree::LineItem.to_s, order.id, item.id, address.state_id, address.zipcode, item.taxable_amount, :amount_to_collect]
+        [Spree::LineItem.to_s, order.id, item.id, address.state_id, address.zipcode, item.taxable_amount, :amount_to_collect_two]
       end
     end
   end

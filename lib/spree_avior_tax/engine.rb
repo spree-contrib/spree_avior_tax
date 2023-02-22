@@ -1,6 +1,9 @@
+require_relative 'configuration'
+
 module SpreeAviorTax
   class Engine < Rails::Engine
     require 'spree/core'
+
     isolate_namespace Spree
     engine_name 'spree_avior_tax'
 
@@ -13,7 +16,7 @@ module SpreeAviorTax
       SpreeAviorTax::Config = SpreeAviorTax::Configuration.new
     end
 
-    initializer 'spree_custom_tax.calculators.tax_rates' do |app|
+    config.after_initialize do |app|
       app.config.spree.calculators.tax_rates << SpreeAviorTax::Calculator::AviorTaxCalculator
     end
 

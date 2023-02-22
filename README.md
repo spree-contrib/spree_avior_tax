@@ -1,30 +1,42 @@
 # SpreeAviorTax
 
-Introduction goes here.
+Spree:AviorTax is a US sales tax extension for Spree using the [Avior Tax Service](#).
+
+## Prerequisites
+
+- Create new account with [Avior](https://avior.tax/contact)
+- Once you create your account, you will need your `user_id` and `password`.
 
 ## Installation
 
 1. Add this extension to your Gemfile with this line:
 
-    ```ruby
-    gem 'spree_avior_tax'
-    ```
+   ```ruby
+   gem 'spree_avior_tax'
+   ```
 
 2. Install the gem using Bundler
 
-    ```ruby
-    bundle install
-    ```
+   ```ruby
+   bundle install
+   ```
 
 3. Copy & run migrations
 
-    ```ruby
-    bundle exec rails g spree_avior_tax:install
-    ```
+   ```ruby
+   bundle exec rails g spree_avior_tax:install
+   ```
 
 4. Restart your server
 
-  If your server was running, restart it so that it can find the assets properly.
+If your server was running, restart it so that it can find the assets properly.
+
+## Setup
+
+In order to setup AviorTax, you need to do the following:
+
+1. Configure the extension by adding you account details such as your `user_id` and `password`.
+2. Create a tax rate with Avior Tax as the calculator.
 
 ## Testing
 
