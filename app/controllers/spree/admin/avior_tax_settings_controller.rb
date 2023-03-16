@@ -7,7 +7,7 @@ module Spree
 
       def update
         SpreeAviorTax::Config[:enabled] = params[:enabled]
-        SpreeAviorTax::Config[:comapny_name] = params[:comapny_name]
+        SpreeAviorTax::Config[:company_name] = params[:company_name]
         SpreeAviorTax::Config[:service_url] = params[:service_url]
         SpreeAviorTax::Config[:user_id] = params[:user_id]
         SpreeAviorTax::Config[:password] = params[:password]
