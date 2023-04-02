@@ -1,5 +1,7 @@
 require 'spree_avior_tax/api/utils'
 require 'spree_avior_tax/api/errors'
+require 'spree_avior_tax/api/input/product'
+require 'spree_avior_tax/api/output/product'
 require 'spree_avior_tax/api/v1/tax'
 
 module SpreeAviorTax
@@ -7,7 +9,7 @@ module SpreeAviorTax
     include SpreeAviorTax::API::Utils
     include SpreeAviorTax::API::V1::Tax
 
-    attr_accessor :service_url, :user_id, :password
+    attr_accessor :service_url, :token
 
     def initialize(opts = {})
       opts.each do |key, value|
@@ -16,10 +18,9 @@ module SpreeAviorTax
     end
 
     def headers
-      credentials = Digest::MD5.hexdigest("#{user_id} #{password}")
       {
         'Content-Type' => 'application/json',
-        'Authorization' => "Basic #{credentials}"
+        'Authorization' => "Token #{token}"
       }
     end
   end
