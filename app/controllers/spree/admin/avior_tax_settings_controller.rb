@@ -2,7 +2,7 @@ module Spree
   module Admin
     class AviorTaxSettingsController < Spree::Admin::BaseController
       def edit
-        @preferences_api = %i[enabled service_url company_name user_id password]
+        @preferences_api = %i[enabled service_url company_name username password token]
       end
 
       def update
