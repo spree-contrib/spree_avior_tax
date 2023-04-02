@@ -11,9 +11,8 @@ Gem::Specification.new do |s|
   s.description = 'Add (optional) extension description here'
   s.required_ruby_version = '>= 2.5'
 
-  s.author    = 'You'
-  s.email     = 'you@example.com'
-  s.homepage  = 'https://github.com/your-github-handle/spree_avior_tax'
+  s.author    = 'Collins Lagat'
+  s.homepage  = 'https://github.com/collins-lagat/spree_avior_tax'
   s.license = 'BSD-3-Clause'
 
   s.files = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(%r{^spec/fixtures}) }
