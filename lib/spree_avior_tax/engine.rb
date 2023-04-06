@@ -1,8 +1,7 @@
-require_relative 'configuration'
-
 module SpreeAviorTax
   class Engine < Rails::Engine
     require 'spree/core'
+    require_relative 'configuration'
 
     isolate_namespace Spree
     engine_name 'spree_avior_tax'
