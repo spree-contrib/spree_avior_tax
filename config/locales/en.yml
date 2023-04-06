@@ -7,3 +7,7 @@ en:
     avior_tax_settings: Avior Tax Settings
     avior_tax_settings_updated: Avior Tax Settings successfully updated
     avior_invalid_data_in_request: Avior Tax -> Invalid Data In Request
+  activerecord:
+    attributes:
+      spree/address:
+        county: County
