@@ -3,6 +3,7 @@ module Spree
     class AviorTaxSettingsController < Spree::Admin::BaseController
       def edit
         @preferences_api = %i[enabled service_url company_name username password token seller_id seller_location_id seller_state customer_entity_code]
+        @us = Spree::Country.find_by(iso: 'US')
       end
 
       def update

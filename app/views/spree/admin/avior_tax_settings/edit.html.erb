@@ -18,6 +18,11 @@
                     <%= Spree.t(key) %>
                   <%end%>
                 </div>
+              <% elsif key == :seller_state %>
+                <%= content_tag :div, class: 'form-group' do %>
+                  <%= label_tag key %>
+                  <%= select_tag key, options_from_collection_for_select(@us.states.sort, :abbr, :name, SpreeAviorTax::Config[key]), class: 'form-control state_name select2 w-100' %>
+                <% end %>
               <% else %>
                 <%= label_tag key %>
                 <%= preference_field_tag(key, SpreeAviorTax::Config[key], type: SpreeAviorTax::Config.preference_type(key)) %>
