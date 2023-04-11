@@ -27,10 +27,14 @@ module SpreeAviorTax
       }
     end
 
+    def record_number(order)
+      order.number.gsub(/^R/, '')
+    end
+
     def line_item_params
       SpreeAviorTax::API::Input::Product.new(
         date: order.updated_at.strftime('%Y%m%d'),
-        record_number: '523355',
+        record_number: record_number(order),
         seller_id: SpreeAviorTax::Config[:seller_id],
         seller_location_id: SpreeAviorTax::Config[:seller_location_id],
         seller_state: SpreeAviorTax::Config[:seller_state],
@@ -51,7 +55,7 @@ module SpreeAviorTax
     def shipment_params
       SpreeAviorTax::API::Input::Product.new(
         date: order.updated_at.strftime('%Y%m%d'),
-        record_number: '523355',
+        record_number: record_number(order),
         seller_id: SpreeAviorTax::Config[:seller_id],
         seller_location_id: SpreeAviorTax::Config[:seller_location_id],
         seller_state: SpreeAviorTax::Config[:seller_state],
