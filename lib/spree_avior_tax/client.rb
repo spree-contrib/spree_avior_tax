@@ -1,12 +1,16 @@
-require 'spree_avior_tax/api/utils'
+require 'json'
+require 'spree_avior_tax/api/utils/http'
+require 'spree_avior_tax/api/utils/build'
 require 'spree_avior_tax/api/errors'
 require 'spree_avior_tax/api/input/product'
 require 'spree_avior_tax/api/output/product'
+require 'spree_avior_tax/api/output/tax'
 require 'spree_avior_tax/api/v1/tax'
 
 module SpreeAviorTax
   class Client
-    include SpreeAviorTax::API::Utils
+    include SpreeAviorTax::API::Utils::HTTP
+    include SpreeAviorTax::API::Utils::Build
     include SpreeAviorTax::API::V1::Tax
 
     attr_accessor :service_url, :token

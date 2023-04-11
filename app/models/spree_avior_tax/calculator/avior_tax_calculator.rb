@@ -48,9 +48,7 @@ module SpreeAviorTax
 
         Rails.cache.fetch(rails_cache_key, expires_in: CACHE_EXPIRATION_DURATION) do
           response = AviorTax.new.calculate_for_order(order, item)
-          body = response.first
-          amount = BigDecimal(body.fips_tax_amount_1) + BigDecimal(body.fips_tax_amount_2)
-          amount
+          sum_taxes_for_products(response)
         end
       end
 
@@ -62,9 +60,13 @@ module SpreeAviorTax
 
         Rails.cache.fetch(rails_cache_key, expires_in: CACHE_EXPIRATION_DURATION) do
           response = AviorTax.new.calculate_for_shipment(order, shipment)
-          body = response.first
-          amount = BigDecimal(body.fips_tax_amount_1) + BigDecimal(body.fips_tax_amount_2)
-          amount
+          sum_taxes_for_products(response)
+        end
+      end
+
+      def sum_taxes_for_products(products)
+        products.reduce(0) do |sum, product|
+          sum + product.taxes.reduce(0) { |local_sum, tax| local_sum + BigDecimal(tax.fips_tax_amount) }
         end
       end
 

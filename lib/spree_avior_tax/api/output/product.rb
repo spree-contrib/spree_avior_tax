@@ -22,15 +22,12 @@ module SpreeAviorTax
         attribute :amount_of_sale, :string
         attribute :resulttype, :string
         attribute :taxability_code, :string
-        attribute :fips_jurisdiction_code_1, :string
-        attribute :fips_tax_rate_1, :string
-        attribute :fips_tax_amount_1, :string
-        attribute :fips_jurisdiction_code_2, :string
-        attribute :fips_tax_rate_2, :string
-        attribute :fips_tax_amount_2, :string
+
+        attr_accessor :taxes
 
         def initialize(attributes = {})
           set_attributes(attributes)
+          @taxes = []
         end
 
         def to_h
@@ -52,13 +49,7 @@ module SpreeAviorTax
             sku: sku,
             'amount of sale' => amount_of_sale,
             'resulttype' => resulttype,
-            'taxability code' => taxability_code,
-            'fips jurisdiction code 1' => fips_jurisdiction_code_1,
-            'fips tax rate 1' => fips_tax_rate_1,
-            'fips tax amount 1' => fips_tax_amount_1,
-            'fips jurisdiction code 2' => fips_jurisdiction_code_2,
-            'fips tax rate 2' => fips_tax_rate_2,
-            'fips tax amount 2' => fips_tax_amount_2
+            'taxability code' => taxability_code
           }
         end
       end
