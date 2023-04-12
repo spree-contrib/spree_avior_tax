@@ -1,0 +1,20 @@
+[
+  {
+    "date": "20200701",
+    "record_number": "523355",
+    "seller_id": "Z123456789",
+    "seller_location_id": "1",
+    "seller_state": "FL",
+    "delivery_method": "N",
+    "customer_entity_code": "T",
+    "ship_to_address": "417 Meridian Ave",
+    "ship_to_suite": "",
+    "ship_to_city": "Bal Harbour",
+    "ship_to_county": "Miami-Dade",
+    "ship_to_state": "FL",
+    "ship_to_zip_code": "33154",
+    "ship_to_zip_plus": "",
+    "sku": "223443",
+    "amount_of_sale": "64.99"
+  }
+]

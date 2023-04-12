@@ -1,0 +1,28 @@
+[
+  {
+    "date": "20200701",
+    "record number": "523355",
+    "seller id": "Z123456789",
+    "seller location id": "1",
+    "seller state": "FL",
+    "delivery method": "N",
+    "customer entity code": "T",
+    "ship to address": "417 Meridian Ave",
+    "ship to suite": "",
+    "ship to city": "Bal Harbour",
+    "ship to county": "Miami-Dade",
+    "ship to state": "FL",
+    "ship to zip code": "33154",
+    "ship to zip plus": "",
+    "sku": "223443",
+    "amount of sale": "64.99",
+    "resulttype": "0",
+    "taxability code": "",
+    "fips jurisdiction code 1": "12",
+    "fips tax rate 1": "0.06",
+    "fips tax amount 1": "3.90",
+    "fips jurisdiction code 2": "086",
+    "fips tax rate 2": "0.01",
+    "fips tax amount 2": "0.65"
+  }
+]
