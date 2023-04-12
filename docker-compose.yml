@@ -8,7 +8,6 @@ services:
       - "postgres:/var/lib/postgresql/data"
   web:
     depends_on:
-      - "postgres"
       - "pgadmin"
     build:
       context: .
@@ -23,18 +22,6 @@ services:
       DB_HOST: postgres
       DB_PORT: 5432
       DISABLE_SPRING: 1
-  pgadmin:
-    depends_on:
-      - "postgres"
-    image: dpage/pgadmin4:6.20
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
-    volumes:
-      - "pgadmin:/var/lib/pgadmin"
-    ports:
-      - "5050:80"
 volumes:
   postgres:
-  pgadmin:
   bundle_cache:

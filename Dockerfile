@@ -17,7 +17,20 @@ RUN apt-get update -yq \
 RUN apt-get clean -qy \
   && rm -rf /var/lib/apt/lists/*
 
+ARG WWWGROUP
+
+RUN groupadd --force -g $WWWGROUP rails
+RUN useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 rails
+RUN usermod -u ${WWWGROUP} rails
+
 RUN mkdir /app
+
+RUN mkdir /bundle
+
+RUN chown -R rails:rails /app
+
+RUN chown -R rails:rails /bundle
+
 WORKDIR /app
 
 RUN yarn add esbuild
@@ -32,11 +45,6 @@ ENV BUNDLE_GEMFILE=/app/Gemfile \
   GEM_HOME=/bundle
 ENV PATH="${BUNDLE_BIN}:${PATH}"
 
-ARG WWWGROUP
-
-RUN groupadd --force -g $WWWGROUP rails
-RUN useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 rails
-RUN usermod -u ${WWWGROUP} rails
 USER rails
 
 CMD ["bash"]
