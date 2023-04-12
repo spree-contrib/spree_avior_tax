@@ -19,6 +19,8 @@ module SpreeAviorTax
           fail_or_return_response_body(response_body)
         end
 
+        private
+
         def fail_or_return_response_body(body)
           if body.nil?
             raise SpreeAviorTax::API::Errors::AviorTaxServerError.new(body),
