@@ -7,6 +7,7 @@ gem 'spree_backend', github: 'spree/spree_backend', branch: 'main'
 
 group :test do
   gem 'rails-controller-testing'
+  gem 'webmock'
 end
 
 group :development do
