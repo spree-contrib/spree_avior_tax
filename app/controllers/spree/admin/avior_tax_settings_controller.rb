@@ -29,7 +29,7 @@ module Spree
 
         data = client.login(validated_params[:username], validated_params[:password])
 
-        if data[:auth_token].nil?
+        if data['auth_token'].nil?
           flash[:error] = Spree.t(:avior_tax_login_failed)
           redirect_to edit_admin_avior_tax_settings_path
           return
