@@ -5,8 +5,11 @@ en:
   spree:
     avior_tax: Avior Tax
     avior_tax_settings: Avior Tax Settings
+    avior_tax_basic_settings: Basic Settings
+    avior_tax_general_settings: General Settings
     avior_tax_settings_updated: Avior Tax Settings successfully updated
     avior_invalid_data_in_request: Avior Tax -> Invalid Data In Request
+    avior_tax_login_failed: Login failed. Please check your credentials
   activerecord:
     attributes:
       spree/address:
