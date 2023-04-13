@@ -2,7 +2,7 @@ module SpreeAviorTax
   module API
     module Utils
       module HTTP
-        def post_request(endpoint, data)
+        def post_request(endpoint, data, headers = {})
           response = HTTParty.post(endpoint,
                                    {
                                      body: data,

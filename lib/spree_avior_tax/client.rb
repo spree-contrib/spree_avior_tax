@@ -21,7 +21,7 @@ module SpreeAviorTax
       end
     end
 
-    def headers
+    def auth_headers
       {
         'Content-Type' => 'application/json',
         'Authorization' => "Token #{token}"

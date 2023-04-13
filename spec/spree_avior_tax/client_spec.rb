@@ -15,10 +15,10 @@ describe SpreeAviorTax::Client do
   describe 'client headers' do
     it 'sets up the headers correctly' do
       client = described_class.new(service_url: 'https://developer.avior.tax', token: '123456789')
-      expect(client.headers).to eq({
-                                     'Content-Type' => 'application/json',
-                                     'Authorization' => 'Token 123456789'
-                                   })
+      expect(client.auth_headers).to eq({
+                                          'Content-Type' => 'application/json',
+                                          'Authorization' => 'Token 123456789'
+                                        })
     end
   end
 
@@ -37,7 +37,7 @@ describe SpreeAviorTax::Client do
         .to_return(status: 200, body: '{"test":1}', headers: {
                      'Content-Type' => 'application/json'
                    })
-      response_body = client.post_request('https://developer.avior.tax', { 'test' => 1 })
+      response_body = client.post_request('https://developer.avior.tax', { 'test' => 1 }, client.auth_headers)
       expect(response_body).to eq({ 'test' => 1 })
     end
 
@@ -54,7 +54,7 @@ describe SpreeAviorTax::Client do
                      'Content-Type' => 'application/json'
                    })
       expect {
-        client.post_request('https://developer.avior.tax', { 'test' => 1 })
+        client.post_request('https://developer.avior.tax', { 'test' => 1 }, client.auth_headers)
       }.to raise_error(SpreeAviorTax::API::Errors::AviorTaxServerError,
                        'AviorTax server returned an error (error code 999): test error')
     end
