@@ -3,35 +3,86 @@
 <% content_for :page_title do %>
   <%= Spree.t(:avior_tax_settings) %>
 <% end %>
-<%= form_tag admin_avior_tax_settings_path, method: :put do %>
-  <div id="preferences" data-hook>
-    <div class="row">
-      <div class="col-md-6">
-        <fieldset class="no-border-bottom">
-          <% @preferences_api.each do |key| %>
-            <div class="form-group">
-              <% if SpreeAviorTax::Config.preference_type(key) == :boolean %>
-                <div class="checkbox">
-                  <%= label_tag key do %>
-                    <%= hidden_field_tag(key, 0, id: "#{key}_hidden") %>
-                    <%= check_box_tag(key, 1, SpreeAviorTax::Config[key]) %>
-                    <%= Spree.t(key) %>
-                  <%end%>
-                </div>
-              <% elsif key == :seller_state %>
-                <%= content_tag :div, class: 'form-group' do %>
-                  <%= label_tag key %>
-                  <%= select_tag key, options_from_collection_for_select(@us.states.sort, :abbr, :name, SpreeAviorTax::Config[key]), class: 'form-control state_name select2 w-100' %>
+<%= form_tag admin_avior_tax_login_path, method: :post do %>
+  <div data-hook="admin_tax_rate_form_fields">
+    <div class="card mb-3" data-hook="tax_rates">
+      <div class="card-header">
+        <h5 class="card-title mb-0 h6">
+          <%= Spree.t(:avior_tax_basic_settings) %>
+        </h5>
+      </div>
+
+      <div class="card-body">
+        <div id="basic-preferences" data-hook>
+          <div class="row">
+            <div class="col-md-6">
+              <fieldset class="no-border-bottom">
+                <% @basic_preferences_api.each do |key| %>
+                  <div class="form-group">
+                      <%= label_tag key %>
+                      <%= preference_field_tag(key, SpreeAviorTax::Config[key], type: SpreeAviorTax::Config.preference_type(key)) %>
+                  </div>
                 <% end %>
-              <% else %>
-                <%= label_tag key %>
-                <%= preference_field_tag(key, SpreeAviorTax::Config[key], type: SpreeAviorTax::Config.preference_type(key)) %>
-              <% end %>
+              </fieldset>
             </div>
-          <% end %>
-        </fieldset>
+          </div>
+          <div class="form-actions" data-hook="buttons">
+            <%= button Spree.t('login'), 'submit', {class: 'btn-primary btn-block', data: { disable_with: "#{ Spree.t(:saving) }..." }} %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% end %>
+
+<% if SpreeAviorTax::Config[:token] %>
+  <%= form_tag admin_avior_tax_settings_path, method: :put do %>
+    <div data-hook="admin_tax_rate_form_fields">
+      <div class="card mb-3" data-hook="tax_rates">
+        <div class="card-header">
+          <h5 class="card-title mb-0 h6">
+            <%= Spree.t(:avior_tax_general_settings) %>
+          </h5>
+        </div>
+
+        <div class="card-body">
+          <div id="general-preferences" data-hook>
+            <div class="row">
+              <div class="col-md-6">
+                <fieldset class="no-border-bottom">
+                  <% @preferences_api.each do |key| %>
+                    <div class="form-group">
+                      <% if SpreeAviorTax::Config.preference_type(key) == :boolean %>
+                        <div class="checkbox">
+                          <%= label_tag key do %>
+                            <%= hidden_field_tag(key, 0, id: "#{key}_hidden") %>
+                            <%= check_box_tag(key, 1, SpreeAviorTax::Config[key]) %>
+                            <%= Spree.t(key) %>
+                          <%end%>
+                        </div>
+                      <% elsif key == :seller_state %>
+                        <%= content_tag :div, class: 'form-group' do %>
+                          <%= label_tag key %>
+                          <%= select_tag key, options_from_collection_for_select(@us.states.sort, :abbr, :name, SpreeAviorTax::Config[key]), class: 'form-control state_name select2 w-100' %>
+                        <% end %>
+                      <% elsif key == :token %>
+                          <%= label_tag key %>
+                          <%= text_field_tag key, SpreeAviorTax::Config[key], class: 'form-control', disabled: true %>
+                      <% else %>
+                        <%= label_tag key %>
+                        <%= preference_field_tag(key, SpreeAviorTax::Config[key], type: SpreeAviorTax::Config.preference_type(key)) %>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </fieldset>
+              </div>
+            </div>
+            <%= render partial: 'spree/admin/shared/edit_resource_links', locals: {collection_url: admin_orders_url}  %>
+          </div>
+        </div>
+
       </div>
     </div>
-    <%= render partial: 'spree/admin/shared/edit_resource_links', locals: {collection_url: admin_orders_url}  %>
-  </div>
+  <% end %>
 <% end %>
