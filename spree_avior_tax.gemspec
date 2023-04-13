@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.5'
 
   s.author    = 'Collins Lagat'
+  s.email     = 'collins@collinslagat.com'
   s.homepage  = 'https://github.com/collins-lagat/spree_avior_tax'
   s.license = 'BSD-3-Clause'
 
