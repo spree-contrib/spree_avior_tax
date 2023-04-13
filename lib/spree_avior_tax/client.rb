@@ -5,6 +5,7 @@ require 'spree_avior_tax/api/errors'
 require 'spree_avior_tax/api/input/product'
 require 'spree_avior_tax/api/output/product'
 require 'spree_avior_tax/api/output/tax'
+require 'spree_avior_tax/api/v1/auth'
 require 'spree_avior_tax/api/v1/tax'
 
 module SpreeAviorTax
@@ -12,6 +13,7 @@ module SpreeAviorTax
     include SpreeAviorTax::API::Utils::HTTP
     include SpreeAviorTax::API::Utils::Build
     include SpreeAviorTax::API::V1::Tax
+    include SpreeAviorTax::API::V1::Auth
 
     attr_accessor :service_url, :token
 

@@ -6,6 +6,8 @@ module SpreeAviorTax
       @client = SpreeAviorTax::Client.new client_params
     end
 
+    delegate :login, to: :client
+
     def calculate_for_order(order, line_item)
       @order = order
       @line_item = line_item

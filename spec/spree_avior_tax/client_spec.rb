@@ -122,4 +122,26 @@ describe SpreeAviorTax::Client do
       expect(response_body).to eq response
     end
   end
+
+  describe 'client login' do
+    before do
+      stub_request(:post, 'https://developer.avior.tax/api/auth/token/login/')
+        .with(
+          body: '{"username":"test","password":"test"}',
+          headers: {
+            'Content-Type' => 'application/json'
+          }
+        )
+        .to_return(status: 200, body: '{"auth_token": "123456789"}', headers: {
+                     'Content-Type' => 'application/json'
+                   })
+    end
+
+    let(:client) { described_class.new(service_url: 'https://developer.avior.tax') }
+
+    it 'returns the auth_token in the response body' do
+      response_body = client.login('test', 'test')
+      expect(response_body).to eq({ 'auth_token' => '123456789' })
+    end
+  end
 end
