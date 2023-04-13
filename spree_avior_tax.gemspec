@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_avior_tax'
   s.version     = SpreeAviorTax.version
-  s.summary     = 'Add extension summary here'
-  s.description = 'Add (optional) extension description here'
+  s.summary     = 'Spree extension to calculate sales tax in the US using Avior Tax API'
+  s.description = s.summary
   s.required_ruby_version = '>= 2.5'
 
   s.author    = 'Collins Lagat'
