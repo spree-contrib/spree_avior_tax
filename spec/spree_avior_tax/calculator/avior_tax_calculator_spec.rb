@@ -7,7 +7,7 @@ describe SpreeAviorTax::Calculator::AviorTaxCalculator do
   let(:line_item) { create(:avior_tax_line_item, order: order, price: 10, quantity: 1) }
   let(:shipment) { create(:avior_tax_shipment, cost: 10, state: 'pending', stock_location: create(:stock_location)) }
 
-  describe 'with tax included in price' do
+  context 'with tax included in price' do
     let(:calculator) { create(:avior_tax_calculator_with_tax_rate_included_in_price) }
 
     describe '#compute_order' do
@@ -29,7 +29,7 @@ describe SpreeAviorTax::Calculator::AviorTaxCalculator do
     end
   end
 
-  describe 'without tax included in price' do
+  context 'without tax included in price' do
     let(:calculator) { create(:avior_tax_calculator) }
 
     before do
