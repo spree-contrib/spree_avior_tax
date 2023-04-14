@@ -23,6 +23,8 @@ module Spree
         raise ActionController::ParameterMissing, :username unless validated_params.key?(:username)
         raise ActionController::ParameterMissing, :password unless validated_params.key?(:password)
 
+        SpreeAviorTax::Config[:service_url] = validated_params[:service_url]
+
         client = SpreeAviorTax::Client.new(
           service_url: SpreeAviorTax::Config[:service_url]
         )
@@ -34,7 +36,6 @@ module Spree
           redirect_to edit_admin_avior_tax_settings_path
           return
         end
-        SpreeAviorTax::Config[:service_url] = validated_params[:service_url]
         SpreeAviorTax::Config[:username] = validated_params[:username]
         SpreeAviorTax::Config[:password] = validated_params[:password]
         SpreeAviorTax::Config[:token] = data['auth_token']
