@@ -65,4 +65,24 @@ describe SpreeAviorTax::Calculator::AviorTaxCalculator do
       end
     end
   end
+
+  context 'when avior tax is disabled' do
+    let(:calculator) { create(:avior_tax_calculator) }
+
+    before do
+      SpreeAviorTax::Config[:enabled] = false
+    end
+
+    describe '#compute_line_item' do
+      it 'returns tax as 0' do
+        expect(calculator.compute(line_item)).to eq 0
+      end
+    end
+
+    describe '#compute_shipment' do
+      it 'returns tax as zero' do
+        expect(calculator.compute_shipment(shipment)).to eq 0
+      end
+    end
+  end
 end
