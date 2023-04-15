@@ -32,14 +32,20 @@ describe SpreeAviorTax::Calculator::AviorTaxCalculator do
     end
 
     describe '#compute_line_item' do
-      it 'returns 0' do
+      it 'returns tax as 0' do
         expect(calculator.compute(line_item)).to eq 0
       end
     end
 
     describe '#compute_shipment' do
-      it 'returns 0' do
+      it 'returns tax as 0' do
         expect(calculator.compute_shipment(shipment)).to eq 0
+      end
+    end
+
+    describe '#compute_shipping_rate' do
+      it 'returns tax as 0' do
+        expect(calculator.compute_shipping_rate(shipment.shipping_rates.first)).to eq 0
       end
     end
   end
@@ -62,6 +68,12 @@ describe SpreeAviorTax::Calculator::AviorTaxCalculator do
     describe '#compute_shipment' do
       it 'returns the correct tax amount for shipment' do
         expect(calculator.compute_shipment(shipment)).to eq 0.7
+      end
+    end
+
+    describe '#compute_shipping_rate' do
+      it 'returns tax as 0' do
+        expect(calculator.compute_shipping_rate(shipment.shipping_rates.first)).to eq 0
       end
     end
   end
