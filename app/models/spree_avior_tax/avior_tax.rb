@@ -2,7 +2,10 @@ module SpreeAviorTax
   class AviorTax
     attr_reader :order, :line_item, :shipment, :client
 
-    def initialize
+    def initialize(order = nil, line_item = nil, shipment = nil)
+      @order = order
+      @line_item = line_item
+      @shipment = shipment
       @client = SpreeAviorTax::Client.new client_params
     end
 
