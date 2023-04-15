@@ -1,7 +1,22 @@
 require 'spec_helper'
 
 describe SpreeAviorTax::Calculator::AviorTaxCalculator do
-  before { Spree::Config[:tax_using_ship_address] = false }
+  before do
+    Spree::Config[:tax_using_ship_address] = false
+    SpreeAviorTax::Config[:service_url] = 'https://developer.avior.tax'
+    SpreeAviorTax::Config[:token] = '123456789'
+
+    stub_request(:post, 'https://developer.avior.tax/suttaxd/gettax/')
+      .with(
+        headers: {
+          'Authorization' => 'Token 123456789',
+          'Content-Type' => 'application/json'
+        }
+      )
+      .to_return(status: 200, body: fixture('client/valid_product_response.json'), headers: {
+                   'Content-Type' => 'application/json'
+                 })
+  end
 
   let(:order) { create(:avior_tax_order) }
   let(:line_item) { create(:avior_tax_line_item, order: order, price: 10, quantity: 1) }
@@ -31,22 +46,6 @@ describe SpreeAviorTax::Calculator::AviorTaxCalculator do
 
   context 'without tax included in price' do
     let(:calculator) { create(:avior_tax_calculator) }
-
-    before do
-      SpreeAviorTax::Config[:service_url] = 'https://developer.avior.tax'
-      SpreeAviorTax::Config[:token] = '123456789'
-
-      stub_request(:post, 'https://developer.avior.tax/suttaxd/gettax/')
-        .with(
-          headers: {
-            'Authorization' => 'Token 123456789',
-            'Content-Type' => 'application/json'
-          }
-        )
-        .to_return(status: 200, body: fixture('client/valid_product_response.json'), headers: {
-                     'Content-Type' => 'application/json'
-                   })
-    end
 
     describe '#compute_order' do
       it 'throws NotImplementedError error' do
