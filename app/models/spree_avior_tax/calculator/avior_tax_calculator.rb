@@ -25,9 +25,6 @@ module SpreeAviorTax
         return 0 if rate.included_in_price
 
         round_to_two_places(tax_for_shipment(shipment))
-      rescue SpreeAviorTax::API::Errors::AviorTaxServerError => e
-        errors.add(:base, e.message)
-        Rails.logger.error "AviorTax server error: #{e.message}"
       end
 
       def compute_shipping_rate(_shipping_rate)
