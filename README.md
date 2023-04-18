@@ -5,7 +5,16 @@ Spree:AviorTax is a US sales tax extension for Spree using the [Avior Tax Servic
 ## Prerequisites
 
 - Create new account with [Avior](https://avior.tax/contact)
-- Once you create your account, you will need your `user_id` and `password`.
+- Once you create your account, you will have access to the following details:
+
+  1. username
+  2. password
+  3. service url
+  4. company name
+  5. seller id
+  6. seller location id
+  7. seller state
+  8. customer entity code
 
 ## Installation
 
@@ -33,10 +42,24 @@ If your server was running, restart it so that it can find the assets properly.
 
 ## Setup
 
-In order to setup AviorTax, you need to do the following:
+In order to setup Avior Tax, you need to do the following:
 
-1. Configure the extension by adding you account details such as your `user_id` and `password`.
-2. Create a tax rate with Avior Tax as the calculator.
+1. Navigate to **Avior Settings** Admin Page. You can find it in the **Configuration** Settings Tab when you login as an admin.
+
+2. Once you are there, you'll need to login to your authenticate to Avior Tax and retrieve a **authentication token**. This can be conviniently done through the **Avior Tax Settings**.
+
+   - In the **Basic Settings** section of the page, provide the **Service URL**, **Username** and **Password** and then click the Login button. If the details are correct, you'll get a token that will be visible in the `Token` field in the **General Settings** section.
+   - In the **General Settings** section, provide the **Company Name**, **Seller (Id)**, **Seller Location (Id)**, **Seller State**, and **Customer Entity Code**.
+   - That's all.
+
+3. Create a tax rate with Avior Tax as the calculator.
+
+   - Go to the **Tax Rates** section, and click the **'New Tax Rate'** button.
+   - Fill in the all the required details. **Note** that the tax rate is required, even though Avior Tax will provide the final tax rate and amount.
+   - Select **Avior Tax** from the list of calculators.
+   - Click **'Create'** button.
+
+4. That's all
 
 ## Testing
 
