@@ -1,5 +1,5 @@
 module SpreeAviorTax
-  VERSION = '0.0.5-dev'.freeze
+  VERSION = '0.0.6-dev'.freeze
 
   module_function
 
