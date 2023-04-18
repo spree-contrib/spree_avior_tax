@@ -4,17 +4,17 @@ Spree:AviorTax is a US sales tax extension for Spree using the [Avior Tax Servic
 
 ## Prerequisites
 
-- Create new account with [Avior](https://avior.tax/contact)
-- Once you create your account, you will have access to the following details:
+1.  Create new account with [Avior](https://avior.tax/contact)
+2.  Once you create your account, you will have access to the following details:
 
-  1. username
-  2. password
-  3. service url
-  4. company name
-  5. seller id
-  6. seller location id
-  7. seller state
-  8. customer entity code
+    - username
+    - password
+    - service url
+    - company name
+    - seller id
+    - seller location id
+    - seller state
+    - customer entity code
 
 ## Installation
 
