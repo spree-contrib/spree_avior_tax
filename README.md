@@ -48,7 +48,7 @@ In order to setup Avior Tax, you need to do the following:
 
 2. Once you are there, you'll need to login to your authenticate to Avior Tax and retrieve a **authentication token**. This can be conviniently done through the **Avior Tax Settings**.
 
-   - In the **Basic Settings** section of the page, provide the **Service URL**, **Username** and **Password** and then click the Login button. If the details are correct, you'll get a token that will be visible in the `Token` field in the **General Settings** section.
+   - In the **Basic Settings** section of the page, provide the **Service URL**, **Username** and **Password** and then click the Login button. If the details are correct, you'll get a token that will be visible in the **Token** field in the **General Settings** section.
    - In the **General Settings** section, provide the **Company Name**, **Seller (Id)**, **Seller Location (Id)**, **Seller State**, and **Customer Entity Code**.
    - That's all.
 
