@@ -5,7 +5,7 @@
     "seller_id": "Z123456789",
     "seller_location_id": "1",
     "seller_state": "FL",
-    "delivery_method": "",
+    "delivery_method": "N",
     "customer_entity_code": "T",
     "ship_to_address": "417 Meridian Ave",
     "ship_to_suite": "",
