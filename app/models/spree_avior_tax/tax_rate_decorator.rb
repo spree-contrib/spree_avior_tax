@@ -5,7 +5,7 @@ module SpreeAviorTax
     def label
       return super unless using_avior_tax?
 
-      Spree.t :avior_tax
+      Spree.t :avior_tax_adjustment_label
     end
 
     def using_avior_tax?

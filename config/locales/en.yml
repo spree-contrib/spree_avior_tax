@@ -4,6 +4,7 @@
 en:
   spree:
     avior_tax: Avior Tax
+    avior_tax_adjustment_label: Sales Tax
     avior_tax_settings: Avior Tax Settings
     avior_tax_basic_settings: Basic Settings
     avior_tax_general_settings: General Settings
