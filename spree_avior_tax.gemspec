@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
 
   s.author    = 'Collins Lagat'
   s.email     = 'collins@collinslagat.com'
-  s.homepage  = 'https://github.com/collins-lagat/spree_avior_tax'
+  s.homepage  = 'https://github.com/spree-contrib/spree_avior_tax'
   s.license = 'BSD-3-Clause'
 
   s.files = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(%r{^spec/fixtures}) }
